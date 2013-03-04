@@ -514,7 +514,7 @@ class pisaFileObject:
                     if r1.getheader("content-encoding") == "gzip":
                         # zbuf = cStringIO.StringIO(data)
                         import gzip
-                        self.file = gzip.GzipFile(mode="rb", fileobj=r1)
+                        self.file = gzip.GzipFile(mode="rb", fileobj=StringIO.StringIO(r1.read()))
                         #data = zfile.read()
                         #zfile.close()
                     else:
